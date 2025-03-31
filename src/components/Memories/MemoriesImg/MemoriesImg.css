@@ -1,0 +1,53 @@
+.MemoriesImg{
+    display: flex;
+    position: relative;
+    aspect-ratio: 1 / 1;
+    width: 300px;
+    height: 300px;
+    overflow: hidden;
+}
+
+.MemoriesImg__text{
+    display: flex;
+    position: absolute;
+    z-index: 2;
+    
+}
+
+p.MemoriesImg__text{
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-shadow: 5px 5px 19px rgba(0, 0, 0, 0.557);
+    font-size: 10em;
+    color: white;
+    font-weight: 900;
+    margin: 0
+   
+}
+
+.MemoriesImg__img{
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease; 
+}
+
+.MemoriesImg__text__alternative{
+    width: 100%;
+    position: absolute;
+    z-index: 2;
+    font-size: 2em;
+    color: white;
+    text-align: center;
+    font-weight: 900;
+    text-wrap: balance;
+}
+
+div.MemoriesImg > img.MemoriesImg__img:hover{
+    animation: ease-in;
+    animation-duration: 2s;
+    transform: scale(1.2);
+    cursor: pointer;
+}

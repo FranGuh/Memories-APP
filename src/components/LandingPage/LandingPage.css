@@ -1,0 +1,34 @@
+section.Page{
+    width: auto;
+    height: auto;
+}
+
+div.LandingPage{
+    display: inline-flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    margin-top: 20%;
+    align-content: center; 
+    justify-content: center;  
+    background-color: rgba(0, 0, 0, 0.221);
+    border-radius: 1rem;
+    width: 700px;
+    height: 300px;
+    text-align: center;
+}
+
+
+.LandingPage__buttons{
+    display: flex;
+    margin: 0;
+    padding: 0;
+    justify-content:center;
+}
+
+.LandingPage__img{
+    width: 350px;
+    height: 500px;
+    margin-top: 10%;
+    float: left;
+    
+}

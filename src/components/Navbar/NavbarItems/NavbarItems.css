@@ -1,0 +1,25 @@
+div.NavbarItems{
+    display:flex;
+    margin: 0;
+    padding: 0;
+    width: 200px;
+    height: 50px;
+    background-color: rgb(10, 79, 21);
+    align-items: center;
+    justify-content: center ;
+    cursor: pointer;
+}
+
+a > div.NavbarItems{
+    color: white;
+}
+
+.NavbarItems__icon{
+    margin-top: 5px;
+    margin-right: 5px;
+}
+
+.NavbarItems__text{
+    letter-spacing: 0.1em;
+    font-weight: 600;
+}

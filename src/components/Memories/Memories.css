@@ -1,0 +1,62 @@
+.MemoriesMonth__Text{
+    font-size: 6em;
+    text-align: center;
+    letter-spacing: 0.5em;
+    font-weight: 900;
+}
+
+div.MemoriesAlbum{
+    display: flex;
+    flex-wrap: wrap;
+    margin: auto;
+    justify-content: center;
+}
+
+
+/* Selector */
+
+.MemoriesHeader {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+  }
+  
+  .MemoriesButton {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+  }
+  
+  .MemoriesButton svg {
+    color: #333;
+    transition: color 0.3s ease;
+  }
+  
+  .MemoriesButton:hover svg {
+    color: #000;
+  }
+  
+
+  .MemoriesSelector{
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    max-width: 100vw;
+    max-height: 20vh;
+    height: auto;
+    margin-bottom: 5%;
+  }
+
+  .MemoriesSelector > select,
+  .MemoriesYearScroll > select
+  {
+    min-width: 100px;
+    min-height: 30px;
+    background-color: rgb(255, 255, 255);
+    color: #000;
+    border: #000;
+    text-align: center;
+  }

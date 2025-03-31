@@ -12,7 +12,7 @@ function CustomCalendar() {
                 <Calendar
                     onChange={setDate}
                     value={date}
-                    className="border p-2 rounded bg-white shadow-sm"
+                    className="border p-2 rounded bg-black shadow-sm"
                 />
             </div>
             <p className="mt-3 text-center fs-5">

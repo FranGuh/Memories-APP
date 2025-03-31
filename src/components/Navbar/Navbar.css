@@ -1,0 +1,41 @@
+/* Colorpalete: https://colorhunt.co/palette/b3c8cfbed7dcf1eedce5ddc5 */
+/* Green: https://colorhunt.co/palette/727d73aab99ad0ddd0f0f0d7 */
+.navbar {
+    position: fixed;
+    background-color: #D0DDD0;
+    width: 100vw;
+    height: auto;
+    top: 0%;
+    z-index: 10;
+    clear:  both;
+}
+
+.navbar > .navbar__logo {
+    display: flex;
+    flex-wrap: nowrap;
+    margin: 0;
+    margin-left: 1em;
+    
+}
+
+.navbar__logo h2 {
+    margin-left: 0.05em;
+}
+
+.navbar__logo img{
+    /* min-width: 20px;
+    min-height: 20px; */
+    max-width: 50px;
+    max-height: 50px;
+    margin-top: 15px;
+}
+
+.navbar__items {
+    display: flex;
+    flex-direction: row;
+    width: 70%;
+    height: auto;
+    margin-left: 10px;
+    margin-top: 15px;
+    justify-content: space-between;
+}
