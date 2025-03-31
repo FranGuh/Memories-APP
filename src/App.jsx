@@ -6,6 +6,7 @@ import Navbar from './components/Navbar/Navbar';
 import Memories from './components/Memories/Memories';
 import Notification from './components/Notification/Notification';
 import LandingPage from './components/LandingPage/LandingPage';
+import { Analytics } from "@vercel/analytics/react"
 /* import "bootstrap/dist/css/bootstrap.min.css"; */
 // import "./assets/bootstrap.min.css";
 
@@ -39,6 +40,7 @@ function App() {
           </p>
 
       </div>
+      <Analytics />
     </Router>
   )
 }
