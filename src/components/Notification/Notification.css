@@ -5,3 +5,9 @@
     width: 100vw;
     overflow: hidden;
 }
+
+@media screen and (max-width: 768px) {
+    .Notification{
+        margin-top: 45%;
+    }
+}

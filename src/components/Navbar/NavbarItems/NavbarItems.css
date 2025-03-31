@@ -23,3 +23,13 @@ a > div.NavbarItems{
     letter-spacing: 0.1em;
     font-weight: 600;
 }
+
+
+@media screen and (max-width: 768px) {
+    div.NavbarItems{
+        width: 120px;
+    }
+    .NavbarItems__text{
+        font-size: 0.7rem;
+    }
+}

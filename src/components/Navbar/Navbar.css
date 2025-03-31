@@ -39,3 +39,11 @@
     margin-top: 15px;
     justify-content: space-between;
 }
+
+@media screen and (max-width: 768px) {
+    .navbar__items{
+        flex-direction: column;
+        margin: 0;
+        margin-left: 10px;
+    }
+}

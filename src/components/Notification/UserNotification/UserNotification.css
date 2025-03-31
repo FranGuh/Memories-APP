@@ -37,3 +37,13 @@
     margin-left: 100px;
     display: flex;
 }
+
+
+@media screen and (max-width: 768px) {
+    .UserNotification__userTitle__Text{
+        text-wrap: wrap;
+    }
+    a{
+        width: 320px;
+    }
+}

@@ -10,7 +10,7 @@ div.LandingPage{
     margin-top: 20%;
     align-content: center; 
     justify-content: center;  
-    background-color: rgba(0, 0, 0, 0.221);
+    background-color: rgba(0, 0, 0, 0.22);
     border-radius: 1rem;
     width: 700px;
     height: 300px;
@@ -30,5 +30,16 @@ div.LandingPage{
     height: 500px;
     margin-top: 10%;
     float: left;
-    
+}
+
+@media screen and (max-width: 768px) {
+    section.Page{
+        margin-top: 40%;
+    }
+
+    div.LandingPage{
+        display:inline-block;
+        width: 320px;
+        height: 500px;
+    }
 }

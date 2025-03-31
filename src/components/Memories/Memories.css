@@ -60,3 +60,23 @@ div.MemoriesAlbum{
     border: #000;
     text-align: center;
   }
+
+  @media screen and (max-width: 768px) {
+    .MemoriesHeader{
+      margin-top: 40%;
+    }
+    .MemoriesMonth__Text{
+      font-size: 1em;
+      letter-spacing: 0.2em;
+    }
+  }
+
+  @media screen and (max-width: 1600px) {
+    .MemoriesHeader{
+      margin-top: 20%;
+    }
+    .MemoriesMonth__Text{
+      font-size: 3em;
+      letter-spacing: 0.2em;
+    }
+  }
