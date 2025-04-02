@@ -20,7 +20,7 @@ p.MemoriesImg__text{
     transform: translate(-50%, -50%);
     text-shadow: 5px 5px 19px rgba(0, 0, 0, 0.557);
     font-size: 10em;
-    color: white;
+    color: var(--text);
     font-weight: 900;
     margin: 0
    
@@ -39,7 +39,7 @@ p.MemoriesImg__text{
     position: absolute;
     z-index: 2;
     font-size: 2em;
-    color: white;
+    color: var(--text);
     text-align: center;
     font-weight: 900;
     text-wrap: balance;

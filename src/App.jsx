@@ -1,12 +1,16 @@
 import { useState } from 'react'
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 // import { CustomCalendar } from "./components";
+import './components/ThemeConfig/Themes.css'; 
 import './App.css'
+import { ThemeProvider } from './components/ThemeConfig/ThemeContext';
 import Navbar from './components/Navbar/Navbar';
 import Memories from './components/Memories/Memories';
 import Notification from './components/Notification/Notification';
 import LandingPage from './components/LandingPage/LandingPage';
 import { Analytics } from "@vercel/analytics/react"
+import AdvancedThemeCustomizer from './components/ThemeConfig/ThemeSelector/AdvancedThemeCustomizar';
+import BlogLiterature from './components/MyHistoryUser/BlogLiterature';
 /* import "bootstrap/dist/css/bootstrap.min.css"; */
 // import "./assets/bootstrap.min.css";
 
@@ -15,6 +19,7 @@ function App() {
 
   return (
     <Router>
+      <ThemeProvider>
       <div className='app'>
         
         <Navbar />
@@ -30,6 +35,8 @@ function App() {
               <Route path='/' element={<Memories />} />
               <Route path='/notifications' element={<Notification />} />
               <Route path='/landing' element={<LandingPage />} />
+              <Route path='/config' element={<AdvancedThemeCustomizer />} />
+              <Route path='/page' element={<BlogLiterature />} />
               {/* Redirige cualquier otra ruta a / */}
           <Route path="*" element={<Navigate to="/landing" replace />} />
             </Routes>
@@ -41,6 +48,7 @@ function App() {
 
       </div>
       <Analytics />
+      </ThemeProvider>
     </Router>
   )
 }

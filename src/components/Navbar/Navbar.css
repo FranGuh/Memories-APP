@@ -2,7 +2,7 @@
 /* Green: https://colorhunt.co/palette/727d73aab99ad0ddd0f0f0d7 */
 .navbar {
     position: fixed;
-    background-color: #D0DDD0;
+    background-color: var(--primary);
     width: 100vw;
     height: auto;
     top: 0%;

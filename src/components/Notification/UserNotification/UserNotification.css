@@ -11,11 +11,12 @@
     padding: 0;
     overflow-y: hidden;
     overflow-x: auto;
-    background-color: #9e7372;
+    background-color: var(--primary);
+    color: var(--text);
 }
 
 .UserNotification > a {
-    color: white;
+    color: var(--text);
 }
 
 .UserNotification__userImg{

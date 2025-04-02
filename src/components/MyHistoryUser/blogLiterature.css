@@ -1,0 +1,177 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Gothic&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+    
+}
+
+
+.literature-title{
+    max-width: 794px;
+    margin-top: 120px;
+}
+
+.literature-title > h1{
+    /* font-family: "League Gothic", sans-serif; */
+    font-size: 70px;
+    text-align: start;
+    margin: 0;
+    padding: 0;
+    margin-left: 30px;
+    font-weight: 1000;
+    
+}
+
+.literature-title  > h2{
+    /* font-family: "League Gothic", sans-serif; */
+    font-size: 50px;
+    text-align: start;
+    margin-bottom: 50px;
+    margin-left: 30px;
+    font-weight: 900;
+}
+
+.literature-title  >  h2 > span{
+    color: var(--primary);
+    /* font-family: "League Gothic", sans-serif; */
+    font-size: 50px;
+    text-align: start;
+    font-weight: 900;
+}
+
+
+.literature-title  > p{
+    /* margin-top: 25px;
+    text-align: justify;
+    font-family: "Lato", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 15px;
+    color: #7D7D7D; */
+}
+
+.maestro-izquierda{
+    background-color: transparent;
+
+}
+
+
+.literature-container{
+    display: flex;
+    flex-wrap:nowrap;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    gap: 40px;
+}
+
+.literature-description{
+    font-family: "Lato", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 15px;
+    color: #7D7D7D;
+}
+
+.maestro-derecha >img{
+    min-width: 494px;
+    max-width: 80vw;
+    max-height: 843px;
+    margin: 0;
+    
+}
+
+.contact-literature-questions{
+    background-color: var(--secondary);
+    height: 184px;
+    padding-top: 40px
+    
+}
+
+.contact-literature-questions >  button{
+    border: none;
+    background-color: white;
+    width: 270px;
+    height: 35px;
+    
+    border-radius: 16px;
+    -webkit-border-radius: 16px;
+    -moz-border-radius: 16px;
+    -ms-border-radius: 16px;
+    -o-border-radius: 16px;
+    cursor: pointer;
+    margin: 0 auto;
+    display: block;
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    opacity: 50%;
+    box-shadow: 1px 1px 10px 2px rgba(0,0,0,0.75);
+}
+
+.literature-socials{
+    display: flex;
+    gap: 30px;
+    width: 100%;
+    margin-top: 20px;
+    justify-content: center;
+  }
+  
+  .literature-socials > div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    cursor: pointer;
+    box-shadow: -1px 2px 5px 0px rgba(0,0,0,0.75);
+    
+  }
+  
+  .literature-socials > div > img{
+    height: 35px;
+    width: 35px;
+  }
+
+
+
+  .blogLiteratureKarla__text{
+        margin-top: 50px;
+        margin-bottom: 50px;
+        text-align: justify;
+        text-wrap: pretty;
+        font-weight: 300;
+        font-size: 1.5em;
+  }
+
+  .literature__textquote{
+    font-size: 2em;
+    font-weight: 400;
+  }
+
+  .literature__textquote b{
+    font-size: 1.2em;
+  }
+
+
+  @media (max-width:800px){
+    .literature-container{
+        flex-wrap:wrap;
+        width: 100%;
+        height: auto;
+        overflow: hidden;
+        margin-top: 140px;
+        
+    }
+    
+  }

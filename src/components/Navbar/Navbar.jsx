@@ -12,6 +12,14 @@ const Navbar = () => {
             <h2>Memories</h2>
             <div className="navbar__items">
               <NavbarItems 
+                NavItemsRedirection="/landing"
+                NavbarItemsText="Landing"
+              />
+              <NavbarItems 
+                NavItemsRedirection="/page"
+                NavbarItemsText="Info"
+              />
+              <NavbarItems 
                 NavItemsRedirection="/"
                 NavbarItemsText="Calendar"
               />
@@ -20,7 +28,7 @@ const Navbar = () => {
                 NavbarItemsText="Notifications"
               />
               <NavbarItems 
-                NavItemsRedirection="/landing"
+                NavItemsRedirection="/config"
                 NavbarItemsText="Config"
               />
             </div>

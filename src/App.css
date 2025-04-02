@@ -8,18 +8,21 @@
 #root {
   /* display: flex;
   flex-wrap: wrap; */
-  max-width: 100vw;
-  height: auto;
-  margin: 0;
+  /* max-width: 100vw; */
+  /* height: auto;
+  margin: 0; */
   /* padding: 0.5em; */
   overflow-y: auto;
-  align-items: center;
+  /* align-items: center; */
   font-family: 'Manrope', sans-serif;
-  letter-spacing: 0.05em;
+  /* letter-spacing: 0.05em; */
+  color: var(--text);
 }
 
 body{
-  background-color: #727D73;
+  background-color: var(--secondary);
+  width: 100vw;
+  height: auto;
 }
 
 .footer{

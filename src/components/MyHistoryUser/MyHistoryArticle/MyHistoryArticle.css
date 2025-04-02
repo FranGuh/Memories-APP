@@ -1,0 +1,56 @@
+.MyHistory__article{
+    display: flex;
+    flex-wrap: wrap;
+    background-color: rgba(255, 247, 237, 0.612);
+    width: 100vw;
+    height: auto;
+    margin: auto;
+    padding: 0;
+    
+    
+}
+
+.MyHistory__text{
+    margin-top: 50px;
+    margin-bottom: 50px;
+    text-align: justify;
+    margin-left: 20px;
+    margin-right: 40px;
+    text-wrap: balance;
+    font-weight: 300;
+}
+
+h2.MyHistory__text{
+    
+    font-size: 3em;
+    font-weight: 900;
+    margin-bottom: 10px;
+}
+
+
+h2.MyHistory__text__second{
+    
+    font-size: 3em;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+
+p.MyHistory__text{
+    
+    /* font-family: "Lato", sans-serif; */
+    font-size: 1.5em;
+}
+
+
+div.MyHistory__divider {
+    
+    border-bottom: 0.5px solid rgba(0, 0, 0, 0.326); 
+    width: 80%; 
+}
+
+.highlight {
+    font-weight: bold;
+  }
+  
