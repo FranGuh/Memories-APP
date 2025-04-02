@@ -31,12 +31,12 @@ div.MemoriesAlbum{
   }
   
   .MemoriesButton svg {
-    color: #333;
+    color: var(--text);
     transition: color 0.3s ease;
   }
   
   .MemoriesButton:hover svg {
-    color: #000;
+    color: var(--text);
   }
   
 
@@ -63,7 +63,7 @@ div.MemoriesAlbum{
 
   @media screen and (max-width: 768px) {
     .MemoriesHeader{
-      margin-top: 40%;
+      margin-top: 20%;
     }
     .MemoriesMonth__Text{
       font-size: 1em;
@@ -71,9 +71,10 @@ div.MemoriesAlbum{
     }
   }
 
+
   @media screen and (max-width: 1600px) {
     .MemoriesHeader{
-      margin-top: 20%;
+      margin-top: 15%;
     }
     .MemoriesMonth__Text{
       font-size: 3em;

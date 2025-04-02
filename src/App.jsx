@@ -11,6 +11,7 @@ import LandingPage from './components/LandingPage/LandingPage';
 import { Analytics } from "@vercel/analytics/react"
 import AdvancedThemeCustomizer from './components/ThemeConfig/ThemeSelector/AdvancedThemeCustomizar';
 import BlogLiterature from './components/MyHistoryUser/BlogLiterature';
+import Chat from './components/Chat/Chat';
 /* import "bootstrap/dist/css/bootstrap.min.css"; */
 // import "./assets/bootstrap.min.css";
 
@@ -37,6 +38,7 @@ function App() {
               <Route path='/landing' element={<LandingPage />} />
               <Route path='/config' element={<AdvancedThemeCustomizer />} />
               <Route path='/page' element={<BlogLiterature />} />
+              <Route path='/chat' element={<Chat />} />
               {/* Redirige cualquier otra ruta a / */}
           <Route path="*" element={<Navigate to="/landing" replace />} />
             </Routes>

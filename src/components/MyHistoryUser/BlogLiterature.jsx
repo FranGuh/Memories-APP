@@ -5,6 +5,7 @@ import "./blogLiterature.css";
 import { useNavigate } from "react-router-dom";
 import MyHistoryArticle from "./MyHistoryArticle/MyHistoryArticle";
 import MyHistoryList from "./MyHistoryArticle/MyHistoryList/MyHistoryList";
+import FadeIn from "./Effects/FadeIn";
 
 const BlogLiterature = () => {
   
@@ -19,6 +20,7 @@ const navigate = useNavigate();
     <>
      
      <main>
+        <FadeIn>
         <section className="literature-container">
           <div className="maestro-izquierda">
             <div className="literature-title">
@@ -27,7 +29,7 @@ const navigate = useNavigate();
               Every moment, every story, <span>forever remembered</span>
               </h2>
               
-              <p className="blogLiteratureKarla__text">
+              <p className="blogLiterature__text">
               Welcome to Memories, where we help you capture, cherish, and relive your most treasured moments. Whether it's a birthday, an achievement, or a simple but meaningful day, our platform ensures that no memory fades away.  <br />
               </p>
             </div>
@@ -36,7 +38,9 @@ const navigate = useNavigate();
             <img src="/LandingImg/angryCat.png" alt="" />
           </div>
         </section>
+        </FadeIn>
 
+        <FadeIn>
         <MyHistoryList 
           position="left"
           altTitle="Why Memories?"
@@ -45,12 +49,16 @@ const navigate = useNavigate();
           ulText={["Create albums for special occasions", "Categorize moments by emotions or events", "Set reminders for important dates", "Share your stories with loved ones"]}
           imgSrc="angryCat.png"
         />
+        </FadeIn>
 
+        <FadeIn>
         <MyHistoryArticle 
           secondTitle="More than just storage…
           Our goal is to help you embrace nostalgia and keep your memories alive through personalized experiences."
         />
+        </FadeIn>
 
+        <FadeIn>
         <MyHistoryList 
           altTitle=""
           title="Memories that last a lifetime."
@@ -58,14 +66,18 @@ const navigate = useNavigate();
           imgSrc="angryCat.png"
           highlightPhrases={['Life is a collection of fleeting moments.', 'deserve to be remembered.']}
         />
+        </FadeIn>
 
+        <FadeIn>
         <MyHistoryArticle 
           title="The power of memories."
           text={`Memories shape our identity and connect us with our past. Through personalized notifications and reminders, our app ensures that no special date or heartfelt story is ever forgotten.
           Instead of wondering, “What was that special moment?”, you’ll find yourself saying, “I’m so glad I kept this memory alive.”`}
           highlightPhrases={['“What was that special moment?”', '“I’m so glad I kept this memory alive.”']}
         />
+        </FadeIn>
 
+        <FadeIn>
         <MyHistoryList 
           position="left"
           altTitle=""
@@ -74,18 +86,23 @@ const navigate = useNavigate();
           highlightPhrases={['preserve the essence of your life.']}
           imgSrc="angryCat.png"
         />
+        </FadeIn>
 
+        <FadeIn>
         <div className="literature-container">
           <p className="literature__textquote">
             Memories are more than just pictures—they are emotions, stories, and connections. <b> With Memories, every cherished moment is just a click away, ready to be relived and shared.</b>
           </p>
         </div>
+        </FadeIn>
 
+        <FadeIn>
         <MyHistoryArticle 
           title="Today… we celebrate memories."
           text={`Every memory holds a story, and every story deserves to be told. Memories is here to help you capture those moments, ensuring they are never lost. Because at the end of the day, it’s not just about remembering—it’s about celebrating the journey of life.`}
           highlightWords={['capture', 'celebrating', 'journey of life']}
         />
+        </FadeIn>
       </main>
 
     </>

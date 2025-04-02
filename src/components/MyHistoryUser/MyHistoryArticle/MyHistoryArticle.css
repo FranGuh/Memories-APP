@@ -1,8 +1,8 @@
 .MyHistory__article{
     display: flex;
     flex-wrap: wrap;
-    background-color: rgba(255, 247, 237, 0.612);
-    width: 100vw;
+    background-color: rgba(223, 223, 223, 0.612);
+    width: 100%;
     height: auto;
     margin: auto;
     padding: 0;
@@ -29,7 +29,6 @@ h2.MyHistory__text{
 
 
 h2.MyHistory__text__second{
-    
     font-size: 3em;
     text-align: center;
     margin-top: 20px;
