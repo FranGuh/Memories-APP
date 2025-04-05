@@ -1,7 +1,7 @@
 .ChatUI{
     display: flexbox;
     flex-wrap: wrap;
-    width: 100vw;
+    width: auto;
     height: auto;
     background-color: var(--primary);
     gap: 30px;
@@ -34,8 +34,8 @@
     border-radius: 0.8em;
     margin-left: 70px;
     width: auto;
-    max-width: 60%;
     height: auto;
+    padding: 5px;
 }
 
 .ChatUI__message__text{
