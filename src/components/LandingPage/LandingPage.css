@@ -1,6 +1,9 @@
 section.Page{
-    width: auto;
+    width: 100vw;
     height: auto;
+    display: flex;
+    justify-content: center;
+    align-content: center;
 }
 
 div.LandingPage{
@@ -34,6 +37,7 @@ div.LandingPage{
 
 @media screen and (max-width: 768px) {
     section.Page{
+        flex-direction: column;
         margin-top: 40%;
     }
 

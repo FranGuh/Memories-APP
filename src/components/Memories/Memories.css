@@ -3,6 +3,9 @@
     text-align: center;
     letter-spacing: 0.5em;
     font-weight: 900;
+    width: 320px;
+    max-width: 320px;
+    height: 100px;
 }
 
 div.MemoriesAlbum{
@@ -10,19 +13,33 @@ div.MemoriesAlbum{
     flex-wrap: wrap;
     margin: auto;
     justify-content: center;
+    gap:20px
 }
 
 
 /* Selector */
+main.Memories{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
 
 .MemoriesHeader {
     display: flex;
-    align-items: center;
     justify-content: center;
     gap: 15px;
     margin-bottom: 20px;
   }
   
+  .Memories__date__selector{
+      flex-direction: column;
+      width: 400px;
+      height: 400px;
+  }
+
   .MemoriesButton {
     background: none;
     border: none;
@@ -74,7 +91,7 @@ div.MemoriesAlbum{
 
   @media screen and (max-width: 1600px) {
     .MemoriesHeader{
-      margin-top: 15%;
+      margin-top: 25%;
     }
     .MemoriesMonth__Text{
       font-size: 3em;

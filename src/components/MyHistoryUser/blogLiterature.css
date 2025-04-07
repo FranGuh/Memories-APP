@@ -50,13 +50,12 @@
 .literature-container{
     display: flex;
     flex-wrap:nowrap;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     margin: 0;
     padding: 0;
     width: 100%;
     height: auto;
-    gap: 40px;
     text-align: center;
 }
 
@@ -73,7 +72,6 @@
     max-width: 80vw;
     max-height: 843px;
     margin: 0;
-    
 }
 
   .blogLiterature__text{
@@ -99,13 +97,20 @@
   }
 
 
-  @media (max-width:800px){
+  @media (max-width:860px){
     .literature-container{
         flex-wrap:wrap;
-        width: 100%;
-        height: auto;
-        overflow: hidden;
-        
     }
-    
+    .maestro-derecha >img{
+        min-width: 250px;
+        max-width: 320px;
+        max-height: 843px;
+        margin: 0;
+    }
+    h2, h2.MyHistoryList__text, .literature-title > h2, .literature-title > h2 > span{
+        font-size: 2rem !important;
+    }
+    h1, h1.MyHistoryList__text, .literature-title > h1{
+        font-size: 4rem !important; 
+    }
   }

@@ -59,35 +59,47 @@ const Memories = () => {
 
   return (
     <>
-      <div className="MemoriesHeader">
-        <button className="MemoriesButton" onClick={() => changeMonth('prev')}>
-          <ChevronLeft size={24} />
-        </button>
-        <h2 className='MemoriesMonth__Text'>{months[month - 1]} {year}</h2>
-        <button className="MemoriesButton" onClick={() => changeMonth('next')}>
-          <ChevronRight size={24} />
-        </button>
-      </div>
+    <main className='Memories'>
       
-      <div className="MemoriesSelector">
-        <select value={month} onChange={(e) => setMonth(Number(e.target.value))}>
-          {months.map((m, index) => (
-            <option key={index + 1} value={index + 1}>{m}</option>
-          ))}
-        </select>
+      
+      <div className="Memories__date__selector">
 
-        <div className="MemoriesYearScroll">
-          <select value={year} onChange={handleYearSelect}>
-            {filteredYears.map((y) => (
-              <option key={y} value={y}>{y}</option>
-            ))}
-          </select>
+        <div className="MemoriesHeader">
+            <button className="MemoriesButton" onClick={() => changeMonth('prev')}>
+              <ChevronLeft size={24} />
+            </button>
+            <h2 className='MemoriesMonth__Text'>{months[month - 1]} {year}</h2>
+            <button className="MemoriesButton" onClick={() => changeMonth('next')}>
+              <ChevronRight size={24} />
+            </button>
         </div>
+
+        <div className="MemoriesHeader">
+          <div className="MemoriesSelector">
+              <select value={month} onChange={(e) => setMonth(Number(e.target.value))}>
+                {months.map((m, index) => (
+                  <option key={index + 1} value={index + 1}>{m}</option>
+                ))}
+              </select>
+          </div>
+
+          <div className="MemoriesYearScroll">
+              <select value={year} onChange={handleYearSelect}>
+                {filteredYears.map((y) => (
+                  <option key={y} value={y}>{y}</option>
+                ))}
+              </select>
+          </div>
+        </div>
+        
       </div>
       
+        
+        
       <div className='MemoriesAlbum'>
-        <MemoriesFunction year={year} month={month} />
+          <MemoriesFunction year={year} month={month} />
       </div>
+    </main>
     </>
   );
 };
