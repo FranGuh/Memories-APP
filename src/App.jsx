@@ -40,7 +40,7 @@ function App() {
               <Route path='/page' element={<BlogLiterature />} />
               <Route path='/chat' element={<Chat />} />
               {/* Redirige cualquier otra ruta a / */}
-          <Route path="*" element={<Navigate to="/landing" replace />} />
+            <Route path="*" element={<Navigate to="/landing" replace />} />
             </Routes>
           
 

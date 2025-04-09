@@ -16,9 +16,9 @@ const Notification = () => {
       />
       <UserNotification 
         sourceNotification="none"
-        srcNotificationImg="/UserImg/UserIcon.jpg"
+        srcNotificationImg="/UserImg/UserIcon2.webp"
         altImageNotification="Una imagen del recuerdo My Dog 2025"
-        titleNotification="My Dog 2025 "
+        titleNotification="Prime 2025 "
         accionNotification="remember "
         sourceTitleNotification="Contact"
         timeText="1 hour ago"

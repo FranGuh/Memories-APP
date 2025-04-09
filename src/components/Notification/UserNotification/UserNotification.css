@@ -13,6 +13,7 @@
     overflow-x: auto;
     background-color: var(--primary);
     color: var(--text);
+    align-items: center;
 }
 
 .UserNotification > a {
