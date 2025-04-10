@@ -79,6 +79,21 @@
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
+.ChatUI__message code {
+  white-space: pre-wrap; /* Permite saltos de línea en inline code */
+  word-break: break-word;
+}
+
+.ChatUI__message pre {
+  overflow-x: auto; 
+  white-space: pre; 
+  background: #f5f5f5;
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 0.9em;
+}
+
+
 .ChatUI__message__text {
   margin: 0;
   line-height: 1.4;
