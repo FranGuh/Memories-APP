@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactMarkdown from 'react-markdown';
 import './ChatUser.css';
 
 const ChatUI = ({ name, text, isUser }) => {
@@ -14,7 +15,7 @@ const ChatUI = ({ name, text, isUser }) => {
       <div className="ChatUI__content">
         <p className='ChatUI__username'>{name}</p>
         <div className="ChatUI__message">
-          <p className='ChatUI__message__text'>{text}</p>
+          <ReactMarkdown className="ChatUI__message__text">{text}</ReactMarkdown>
         </div>
       </div>
       {isUser && (
@@ -25,7 +26,7 @@ const ChatUI = ({ name, text, isUser }) => {
         />
       )}
     </div>
-  )
-}
+  );
+};
 
 export default ChatUI;
