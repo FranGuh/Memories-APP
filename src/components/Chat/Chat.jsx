@@ -36,47 +36,47 @@ const Chat = () => {
   setInputValue('');
   setIsLoading(true);
 
-  // try {
-  //   const response = await fetch('/api/grok', {
-  //     method: 'POST',
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //     },
-  //     body: JSON.stringify({
-  //       messages: [
-  //         ...messages.map(msg => ({
-  //           role: msg.isUser ? "user" : "assistant",
-  //           content: msg.text
-  //         })),
-  //         { 
-  //           role: "user", 
-  //           content: inputValue 
-  //         }
-  //       ]
-  //     })
-  //   });
+  try {
+    const response = await fetch('/api/grok', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        messages: [
+          ...messages.map(msg => ({
+            role: msg.isUser ? "user" : "assistant",
+            content: msg.text
+          })),
+          { 
+            role: "user", 
+            content: inputValue 
+          }
+        ]
+      })
+    });
 
-  //   if (!response.ok) {
-  //     throw new Error(`Error HTTP: ${response.status}`);
-  //   }
+    if (!response.ok) {
+      throw new Error(`Error HTTP: ${response.status}`);
+    }
 
-  //   const data = await response.json();
-  //   setMessages(prev => [...prev, {
-  //     name: "Bot Deepseek",
-  //     text: data.response,
-  //     isUser: false
-  //   }]);
+    const data = await response.json();
+    setMessages(prev => [...prev, {
+      name: "Bot Deepseek",
+      text: data.response,
+      isUser: false
+    }]);
     
-  // } catch (error) {
-  //   console.error("Error:", error);
-  //   setMessages(prev => [...prev, {
-  //     name: "Bot Deepseek",
-  //     text: "❌ Error al conectar con la API",
-  //     isUser: false
-  //   }]);
-  // } finally {
-  //   setIsLoading(false);
-  // }
+  } catch (error) {
+    console.error("Error:", error);
+    setMessages(prev => [...prev, {
+      name: "Bot Deepseek",
+      text: "❌ Error al conectar con la API",
+      isUser: false
+    }]);
+  } finally {
+    setIsLoading(false);
+  }
 };
 
   return (
