@@ -12,6 +12,7 @@ const Chat = () => {
     }
   ]);
   const [inputValue, setInputValue] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
   const messagesEndRef = useRef(null);
 
   const scrollToBottom = () => {
@@ -22,9 +23,9 @@ const Chat = () => {
     scrollToBottom();
   }, [messages]);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!inputValue.trim()) return;
+    if (!inputValue.trim() || isLoading) return;
 
     // Add user message
     const userMessage = {
@@ -34,16 +35,44 @@ const Chat = () => {
     };
     setMessages(prev => [...prev, userMessage]);
     setInputValue('');
+    setIsLoading(true);
 
-    // Simulate bot response after a short delay
-    setTimeout(() => {
+    try {
+      // Call your API endpoint
+      const response = await fetch('/api/grok', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          messages: [
+            ...messages.map(msg => ({
+              role: msg.isUser ? "user" : "assistant",
+              content: msg.text
+            })),
+            { role: "user", content: inputValue }
+          ]
+        })
+      });
+
+      const data = await response.json();
+      
       const botResponse = {
         name: "Bot Deepseek",
-        text: "Gracias por tu mensaje. Estoy procesando tu pregunta...", // In a real app, this would be an API call
+        text: data.response || "No pude obtener una respuesta",
         isUser: false
       };
       setMessages(prev => [...prev, botResponse]);
-    }, 1000);
+    } catch (error) {
+      console.error("Error calling API:", error);
+      setMessages(prev => [...prev, {
+        name: "Bot Deepseek",
+        text: "❌ Error al conectar con el servidor",
+        isUser: false
+      }]);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -60,6 +89,13 @@ const Chat = () => {
             isUser={message.isUser}
           />
         ))}
+        {isLoading && (
+          <ChatUI
+            name="Bot Deepseek"
+            text="Escribiendo..."
+            isUser={false}
+          />
+        )}
         <div ref={messagesEndRef} />
       </div>
       <div className="Chat__form">
@@ -75,9 +111,14 @@ const Chat = () => {
                 handleSubmit(e);
               }
             }}
+            disabled={isLoading}
           />
-          <button type="submit" className="Chat__send-btn">
-            <SendHorizonal />
+          <button 
+            type="submit" 
+            className="Chat__send-btn"
+            disabled={isLoading}
+          >
+            {isLoading ? "..." : <SendHorizonal />}
           </button>
         </form>
       </div>
