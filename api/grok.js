@@ -25,8 +25,11 @@ export default async function handler(req) {
       temperature: 0.6
     });
 
+    // Aquí limpiamos la respuesta de cualquier texto dentro de <think>...</think>
+    const cleanedResponse = response.choices[0].message.content.replace(/<think>[\s\S]*?<\/think>/g, '').trim();
+
     return new Response(JSON.stringify({
-      response: response.choices[0].message.content
+      response: cleanedResponse
     }), {
       status: 200,
       headers: { 'Content-Type': 'application/json' }
