@@ -1,18 +1,16 @@
-// api/grok.js
 import { Groq } from 'groq-sdk';
 
-const groq = new Groq({
-  apiKey: process.env.GROQ_API_KEY
-});
-
-// ✅ Exportación correcta para Vercel Serverless Function (ESM compatible)
+// Esta función debe exportarse así para que Vercel la reconozca (ESM)
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Método no permitido' });
   }
 
   try {
-    const { messages } = await req.json();
+    const { messages } = await req.json(); // Si usas Next.js, sería req.body
+    const groq = new Groq({
+      apiKey: process.env.GROQ_API_KEY,
+    });
 
     const response = await groq.chat.completions.create({
       model: 'grok-2',
