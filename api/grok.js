@@ -20,9 +20,9 @@ export default async function handler(req) {
     });
 
     const response = await groq.chat.completions.create({
-      model: 'grok-2',
+      model: 'qwen-qwq-32b',
       messages,
-      temperature: 0.7
+      temperature: 0.6
     });
 
     return new Response(JSON.stringify({
