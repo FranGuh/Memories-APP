@@ -1,38 +1,47 @@
-// api/grok.js
 import { Groq } from 'groq-sdk';
-import dotenv from 'dotenv';
 
-// Cargar variables de entorno
-dotenv.config();
-
-const groq = new Groq({
-  apiKey: process.env.VITE_GROQ_API_KEY || process.env.GROQ_API_KEY
-});
-
-// Para uso con Vercel Serverless Functions
 export default async function handler(req, res) {
+  // Configura CORS
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'POST');
+  res.setHeader('Content-Type', 'application/json');
+
+  // Solo aceptar solicitudes POST
+  if (req.method !== 'POST') {
+    return res.status(405).json({ error: 'Método no permitido' });
+  }
+
   try {
+    // Verifica que el body exista y sea JSON
+    if (!req.body || typeof req.body !== 'object') {
+      return res.status(400).json({ error: 'Cuerpo de solicitud inválido' });
+    }
+
     const { messages } = req.body;
+    
+    // Validación adicional
+    if (!messages || !Array.isArray(messages)) {
+      return res.status(400).json({ error: 'Formato de mensajes inválido' });
+    }
+
+    const groq = new Groq({
+      apiKey: process.env.GROQ_API_KEY
+    });
+
     const response = await groq.chat.completions.create({
-      model: "grok-2",
+      model: "mixtral-8x7b-32768",
       messages,
       temperature: 0.7,
     });
 
-    res.status(200).json({ response: response.choices[0].message.content });
+    return res.status(200).json({ 
+      response: response.choices[0].message.content 
+    });
+    
   } catch (error) {
     console.error("Error en Groq API:", error);
-    res.status(500).json({ error: error.message });
-  }
-}
-
-// Solo para pruebas locales (opcional)
-if (process.env.NODE_ENV === 'development') {
-  (async () => {
-    const testResponse = await groq.chat.completions.create({
-      model: "grok-2",
-      messages: [{ role: "user", content: "Hola, ¿cómo estás?" }],
+    return res.status(500).json({ 
+      error: error.message || "Error al procesar la solicitud" 
     });
-    console.log(testResponse.choices[0].message.content);
-  })();
+  }
 }

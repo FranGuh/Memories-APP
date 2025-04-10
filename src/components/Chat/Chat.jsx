@@ -25,9 +25,8 @@ const Chat = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!inputValue.trim() || isLoading) return;
-
-    // Add user message
+    if (!inputValue.trim()) return;
+  
     const userMessage = {
       name: "Tú",
       text: inputValue,
@@ -36,9 +35,8 @@ const Chat = () => {
     setMessages(prev => [...prev, userMessage]);
     setInputValue('');
     setIsLoading(true);
-
+  
     try {
-      // Call your API endpoint
       const response = await fetch('/api/grok', {
         method: 'POST',
         headers: {
@@ -50,24 +48,30 @@ const Chat = () => {
               role: msg.isUser ? "user" : "assistant",
               content: msg.text
             })),
-            { role: "user", content: inputValue }
+            { 
+              role: "user", 
+              content: inputValue 
+            }
           ]
         })
       });
-
+  
+      if (!response.ok) {
+        throw new Error(`Error HTTP: ${response.status}`);
+      }
+  
       const data = await response.json();
-      
-      const botResponse = {
-        name: "Bot Deepseek",
-        text: data.response || "No pude obtener una respuesta",
-        isUser: false
-      };
-      setMessages(prev => [...prev, botResponse]);
-    } catch (error) {
-      console.error("Error calling API:", error);
       setMessages(prev => [...prev, {
         name: "Bot Deepseek",
-        text: "❌ Error al conectar con el servidor",
+        text: data.response,
+        isUser: false
+      }]);
+      
+    } catch (error) {
+      console.error("Error:", error);
+      setMessages(prev => [...prev, {
+        name: "Bot Deepseek",
+        text: "❌ Error al conectar con la API",
         isUser: false
       }]);
     } finally {
