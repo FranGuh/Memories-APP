@@ -1,4 +1,4 @@
-// api/grok.js (para Vercel)
+// api/grok.js
 const { Groq } = require('groq-sdk');
 
 const groq = new Groq({
@@ -7,7 +7,7 @@ const groq = new Groq({
 
 module.exports = async (req, res) => {
   if (req.method !== 'POST') {
-    return res.status(405).json({ error: 'Solo se permite POST' });
+    return res.status(405).json({ error: 'Método no permitido' });
   }
 
   try {
@@ -21,7 +21,7 @@ module.exports = async (req, res) => {
 
     res.status(200).json({ response: response.choices[0].message.content });
   } catch (error) {
-    console.error('Error en Groq API:', error);
-    res.status(500).json({ error: 'Error al conectar con Groq' });
+    console.error('❌ Error al llamar a la API de Groq:', error);
+    res.status(500).json({ error: 'Error interno en el servidor' });
   }
 };
