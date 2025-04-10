@@ -37,6 +37,9 @@
 
 .bot-message {
   align-self: flex-start;
+  text-overflow: ellipsis;
+  word-break: break-all;
+  white-space: normal;
 }
 
 .bot-message .ChatUI__message {

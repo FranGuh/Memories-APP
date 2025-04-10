@@ -71,7 +71,7 @@ const Chat = () => {
     console.error("Error:", error);
     setMessages(prev => [...prev, {
       name: "Bot Deepseek",
-      text: "❌ Error al conectar con la API",
+      text: "❌ Error al conectar con la API, recarga el chat",
       isUser: false
     }]);
   } finally {
