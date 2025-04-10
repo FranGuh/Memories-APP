@@ -15,7 +15,9 @@ const ChatUI = ({ name, text, isUser }) => {
       <div className="ChatUI__content">
         <p className='ChatUI__username'>{name}</p>
         <div className="ChatUI__message">
-          <ReactMarkdown className="ChatUI__message__text">{text}</ReactMarkdown>
+          <div className="ChatUI__message__text">
+            <ReactMarkdown>{text}</ReactMarkdown>
+          </div>
         </div>
       </div>
       {isUser && (
