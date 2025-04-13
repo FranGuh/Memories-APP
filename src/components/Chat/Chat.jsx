@@ -93,6 +93,15 @@ const Chat = () => {
             isUser={message.isUser}
           />
         ))}
+        {/* {messages.map((message, index) => (
+          <MessageBubble
+            key={index}
+            name={message.name}
+            text={message.text}
+            isUser={message.isUser}
+          />
+        ))} */}
+
         {isLoading && (
           <ChatUI
             name="Bot Deepseek"
