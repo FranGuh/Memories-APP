@@ -87,7 +87,7 @@
 .ChatUI__message pre {
   overflow-x: auto; 
   white-space: pre; 
-  background: #f5f5f5;
+  background: #000000;
   padding: 10px;
   border-radius: 8px;
   font-size: 0.9em;
