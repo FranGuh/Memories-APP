@@ -12,26 +12,18 @@ import { Analytics } from "@vercel/analytics/react"
 import AdvancedThemeCustomizer from './components/ThemeConfig/ThemeSelector/AdvancedThemeCustomizar';
 import BlogLiterature from './components/MyHistoryUser/BlogLiterature';
 import Chat from './components/Chat/Chat';
-/* import "bootstrap/dist/css/bootstrap.min.css"; */
-// import "./assets/bootstrap.min.css";
+import { SpeedInsights } from "@vercel/speed-insights/react"
 
 function App() {
-  // const [count, setCount] = useState(0)
-
   return (
     <Router>
       <ThemeProvider>
       <div className='app'>
-        
         <Navbar />
           {/* <div className="p-4">
                 <h1 className="text-xl font-bold">Memories</h1>
                 <CustomCalendar />
           </div> */}
-
-          {/* <Memories /> */}
-          
-          
             <Routes>
               <Route path='/' element={<Memories />} />
               <Route path='/notifications' element={<Notification />} />
@@ -40,7 +32,7 @@ function App() {
               <Route path='/page' element={<BlogLiterature />} />
               <Route path='/chat' element={<Chat />} />
               {/* Redirige cualquier otra ruta a / */}
-            <Route path="*" element={<Navigate to="/landing" replace />} />
+              <Route path="*" element={<Navigate to="/landing" replace />} />
             </Routes>
           
 
@@ -50,6 +42,7 @@ function App() {
 
       </div>
       <Analytics />
+      <SpeedInsights />
       </ThemeProvider>
     </Router>
   )
