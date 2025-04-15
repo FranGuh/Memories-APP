@@ -27,6 +27,8 @@ body{
 
 .footer{
   float:none;
+  font-size: 20px;
+  text-align: center;
 }
 
 @media (orientation: landscape) {

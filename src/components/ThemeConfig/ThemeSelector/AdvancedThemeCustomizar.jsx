@@ -48,6 +48,32 @@ const AdvancedThemeCustomizer = () => {
           </div>
           <div className="theme-customizer__color-picker">
             <label>
+              Color terciario:
+              <input 
+                type="color" 
+                name="tertiary" 
+                value={localTheme.tertiary || '#510000'} // Puedes asignar un valor por defecto
+                onChange={handleColorChange}
+                className="theme-customizer__input"
+              />
+            </label>
+            <span className="theme-customizer__input-value">{localTheme.tertiary || '#510000'}</span>
+          </div>
+          <div className="theme-customizer__color-picker">
+            <label>
+              Color cuaternario:
+              <input 
+                type="color" 
+                name="quaternary" 
+                value={localTheme.quaternary || '#d1b6a1'} // Valor por defecto
+                onChange={handleColorChange}
+                className="theme-customizer__input"
+              />
+            </label>
+            <span className="theme-customizer__input-value">{localTheme.quaternary || '#d1b6a1'}</span>
+          </div>
+          <div className="theme-customizer__color-picker">
+            <label>
               Color de texto:
               <input 
                 type="color" 

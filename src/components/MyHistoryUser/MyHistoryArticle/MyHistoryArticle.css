@@ -1,7 +1,7 @@
 .MyHistory__article{
     display: flex;
     flex-wrap: wrap;
-    background-color: rgba(223, 223, 223, 0.612);
+    background-color: var(--tertiary);
     width: 100%;
     height: auto;
     margin: auto;

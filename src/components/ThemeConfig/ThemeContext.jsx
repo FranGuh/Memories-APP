@@ -1,21 +1,27 @@
-// ThemeContext.js
+// ThemeContext.js 
 import React, { createContext, useState, useContext, useEffect } from 'react';
 
-// Temas predefinidos (ahora con valores directos)
+// Temas predefinidos (actualizados con tertiary y quaternary)
 const predefinedThemes = {
   light: {
     primary: '#9e7372',
     secondary: '#ffffff',
+    tertiary: 'rgb(81, 0, 0)',
+    quaternary: '#d1b6a1',
     text: '#333333'
   },
   dark: {
     primary: '#333333',
     secondary: '#dddddd',
+    tertiary: '#1a1a1a',
+    quaternary: '#666666',
     text: '#ffffff'
   },
   blue: {
     primary: '#3a7bd5',
     secondary: '#f5f5f5',
+    tertiary: '#2b5fad',
+    quaternary: '#cbd7f1',
     text: '#1a1a1a'
   }
 };
@@ -26,24 +32,22 @@ export const ThemeProvider = ({ children }) => {
   const [currentTheme, setCurrentTheme] = useState('light');
   const [customTheme, setCustomTheme] = useState(predefinedThemes.light);
 
-  // Función para aplicar cualquier tema
   const applyTheme = (theme) => {
-    Object.keys(theme).forEach(key => {
-      document.documentElement.style.setProperty(`--${key}`, theme[key]);
+    Object.entries(theme).forEach(([key, value]) => {
+      document.documentElement.style.setProperty(`--${key}`, value);
     });
   };
 
-  // Cambiar a tema predefinido
   const setPredefinedTheme = (themeName) => {
     if (predefinedThemes[themeName]) {
+      const theme = predefinedThemes[themeName];
       setCurrentTheme(themeName);
-      setCustomTheme(predefinedThemes[themeName]);
-      applyTheme(predefinedThemes[themeName]);
+      setCustomTheme(theme);
+      applyTheme(theme);
       localStorage.setItem('theme', themeName);
     }
   };
 
-  // Cambiar a tema personalizado
   const setCustomThemeAndApply = (theme) => {
     setCurrentTheme('custom');
     setCustomTheme(theme);
@@ -52,7 +56,6 @@ export const ThemeProvider = ({ children }) => {
     localStorage.setItem('customTheme', JSON.stringify(theme));
   };
 
-  // Cargar tema al iniciar
   useEffect(() => {
     const savedThemeName = localStorage.getItem('theme') || 'light';
     if (savedThemeName === 'custom') {

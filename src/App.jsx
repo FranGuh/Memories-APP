@@ -37,7 +37,7 @@ function App() {
           
 
           <p className="footer">
-            Here is the Footer
+            Coded by @Fran
           </p>
 
       </div>

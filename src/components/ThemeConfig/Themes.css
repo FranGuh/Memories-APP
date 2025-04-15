@@ -1,26 +1,33 @@
 /* themes.css */
 :root {
-  /* Variables activas - se actualizarán dinámicamente */
-  --primary: #9e7372;
-  --secondary: #ffffff;
+  --primary: #9e7372; 
+  --secondary: #ffffff; 
+  --tertiary: rgb(81, 0, 0);
+  --quaternary: #d1b6a1;
   --text: #333333;
 }
 
 /* Opcional: clases para temas predefinidos si los necesitas */
 .theme-light {
-  --primary: #9e7372;
-  --secondary: #ffffff;
+  --primary: #9e7372; 
+  --secondary: #ffffff; 
+  --tertiary: rgb(81, 0, 0);
+  --quaternary: #d1b6a1;
   --text: #333333;
 }
 
 .theme-dark {
   --primary: #333333;
   --secondary: #dddddd;
+  --tertiary: rgb(81, 0, 0); 
+  --quaternary: #d1b6a1; 
   --text: #ffffff;
 }
 
 .theme-blue {
   --primary: #3a7bd5;
   --secondary: #f5f5f5;
+  --tertiary: rgb(81, 0, 0); 
+  --quaternary: #d1b6a1; 
   --text: #1a1a1a;
 }
