@@ -1,27 +1,27 @@
 /* themes.css */
 :root {
-  --primary: #9e7372; 
-  --secondary: #ffffff; 
-  --tertiary: rgb(81, 0, 0);
-  --quaternary: #d1b6a1;
-  --text: #333333;
+  --primary: #1f7d53; 
+  --secondary: #27391c; 
+  --tertiary: #255f38;
+  --quaternary: #18230f;
+  --text: #f1f1f1;
 }
 
 /* Opcional: clases para temas predefinidos si los necesitas */
 .theme-light {
-  --primary: #9e7372; 
-  --secondary: #ffffff; 
-  --tertiary: rgb(81, 0, 0);
+  --primary: #ffffff; 
+  --secondary: #9e7372; 
+  --tertiary: rgb(206, 190, 190);
   --quaternary: #d1b6a1;
-  --text: #333333;
+  --text: #000000;
 }
 
 .theme-dark {
-  --primary: #333333;
-  --secondary: #dddddd;
-  --tertiary: rgb(81, 0, 0); 
-  --quaternary: #d1b6a1; 
-  --text: #ffffff;
+  --primary: #1f7d53; 
+  --secondary: #27391c; 
+  --tertiary: #255f38;
+  --quaternary: #18230f;
+  --text: #f1f1f1;
 }
 
 .theme-blue {

@@ -4,11 +4,11 @@ import React, { createContext, useState, useContext, useEffect } from 'react';
 // Temas predefinidos (actualizados con tertiary y quaternary)
 const predefinedThemes = {
   light: {
-    primary: '#9e7372',
-    secondary: '#ffffff',
-    tertiary: 'rgb(81, 0, 0)',
-    quaternary: '#d1b6a1',
-    text: '#333333'
+    primary: '#1f7d53',
+    secondary: '#27391c',
+    tertiary: '#255f38',
+    quaternary: '#18230f',
+    text: '#f1f1f1'
   },
   dark: {
     primary: '#333333',

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Menu, X, Home, Info, Calendar, Bell, Settings, Bot} from 'lucide-react';
 import logo from '../../assets/icons/memories_icon.svg';
@@ -6,6 +6,17 @@ import './Navbar.css';
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+
+   useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth > 768) {
+        setMenuOpen(false);
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   return (
     <nav className="navbar">
