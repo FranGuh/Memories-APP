@@ -37,9 +37,22 @@ export default async function handler(req) {
 
   } catch (error) {
     console.error('Error en Groq API:', error);
+  
+    const errorMessage = error?.error?.error?.message || '';
+  
+    if (errorMessage.includes('Request too large')) {
+      return new Response(JSON.stringify({
+        error: 'Gracias por usar el chatbot. Has alcanzado el límite de tokens en esta sesión demo. Por favor, inicia un nuevo chat para continuar.'
+      }), {
+        status: 413,
+        headers: { 'Content-Type': 'application/json' }
+      });
+    }
+  
     return new Response(JSON.stringify({ error: 'Error interno del servidor' }), {
       status: 500,
       headers: { 'Content-Type': 'application/json' }
     });
   }
+  
 }

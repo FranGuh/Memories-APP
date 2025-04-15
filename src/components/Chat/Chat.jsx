@@ -57,8 +57,23 @@ const Chat = () => {
     });
 
     if (!response.ok) {
-      throw new Error(`Error HTTP: ${response.status}`);
+      const errorData = await response.json();
+    
+      let errorText = "❌ Error al conectar con la API, recarga el chat";
+      if (response.status === 413 && errorData?.error) {
+        errorText = `⚠️ ${errorData.error}`;
+      }
+    
+      setMessages(prev => [...prev, {
+        name: "Bot Deepseek",
+        text: errorText,
+        isUser: false
+      }]);
+    
+      setIsLoading(false);
+      return;
     }
+    
 
     const data = await response.json();
     setMessages(prev => [...prev, {
