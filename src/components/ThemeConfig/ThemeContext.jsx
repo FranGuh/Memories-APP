@@ -5,10 +5,10 @@ import React, { createContext, useState, useContext, useEffect } from 'react';
 const predefinedThemes = {
   light: {
     primary: '#1f7d53',
-    secondary: '#27391c',
+    secondary: '#ababab',
     tertiary: '#255f38',
     quaternary: '#18230f',
-    text: '#f1f1f1'
+    text: '#ffffff'
   },
   dark: {
     primary: '#333333',
