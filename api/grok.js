@@ -20,8 +20,8 @@ export default async function handler(req) {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        model: 'llama-3.3-70b-versatile',
-        messages, // 👈 usa el array completo desde el frontend
+        model: 'llama3-70b-8192',
+        messages,
         temperature: 0.6
       })
     });
