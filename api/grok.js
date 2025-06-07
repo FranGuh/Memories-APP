@@ -20,14 +20,15 @@ export default async function handler(req) {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        model: 'llama3-70b-8192',
-        messages,
+        model: 'llama-3.3-70b-versatile', // ✅ modelo corregido
+        messages,                          // ✅ recibe desde el frontend
         temperature: 0.6
       })
     });
 
     if (!response.ok) {
       const error = await response.json();
+      console.error('Groq API error:', error); // 👈 importante para debug
       throw new Error(error?.error?.message || 'Error desconocido de Groq');
     }
 
