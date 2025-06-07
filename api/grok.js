@@ -20,7 +20,7 @@ export default async function handler(req) {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        model: 'llama-3.3-70b-versatile', // ✅ modelo corregido
+        model: 'qwen-qwq-32b', // ✅ modelo corregido
         messages,                          // ✅ recibe desde el frontend
         temperature: 0.6
       })
