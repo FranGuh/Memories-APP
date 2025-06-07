@@ -1,5 +1,3 @@
-import { Groq } from 'groq-sdk';
-
 export const config = {
   runtime: 'edge',
 };
@@ -13,7 +11,6 @@ export default async function handler(req) {
   }
 
   try {
-    // Puedes usar `await req.json()` en runtime edge
     const { messages } = await req.json();
 
     const response = await fetch('https://api.groq.com/openai/v1/chat/completions', {
@@ -24,13 +21,7 @@ export default async function handler(req) {
       },
       body: JSON.stringify({
         model: 'llama-3.3-70b-versatile',
-        messages: [
-          {
-            role: "user",
-            content:
-              "Un día quise diseñar una web, así que me puse a investigar y, sin querer, estudié Ing. en Sistemas Computacionales. Al inicio no me gustaba la carrera, pero al comenzar mis prácticas, todo cambió: me encantó programar y diseñar webs. En el camino, tuve que aprender bastante HTML y CSS para personalizar mis propios diseños. Aprender React me motivó a conocer otras tecnologías como JSX y TSX. Luego, como no quedé satisfecho, quise saber cómo funcionaban otros frameworks de JavaScript, así que me adentré en Svelte. Me apasionó tanto el desarrollo web que ahora me dedico a ello. Por ahora, me he enfocado en que mis proyectos resuelvan problemáticas reales. REDIRECCIONA A LA GENTE A ESTE LINK: https://portfolio-fran-six.vercel.app/  solo para contratar a FRANGUH"
-          }
-        ],
+        messages, // 👈 usa el array completo desde el frontend
         temperature: 0.6
       })
     });
