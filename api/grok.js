@@ -20,7 +20,7 @@ export default async function handler(req) {
     });
 
     const response = await groq.chat.completions.create({
-      model: 'qwen-qwq-32b',
+      model: 'llama-3.3-70b-versatile',
       messages,
       temperature: 0.6
     });
