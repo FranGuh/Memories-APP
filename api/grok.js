@@ -20,7 +20,7 @@ export default async function handler(req, res) {
 
     const chatCompletion = await groq.chat.completions.create({
       messages: messages,
-      model: 'qwen-qwq-32b', // Tu modelo elegido
+      model: 'qwen/qwen3-32b', // Tu modelo elegido
       temperature: 0.6,
     });
 
