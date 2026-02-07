@@ -1,60 +1,48 @@
-export const config = {
-  runtime: 'edge',
-};
+import Groq from 'groq-sdk';
 
-export default async function handler(req) {
+const groq = new Groq({
+  apiKey: process.env.GROQ_API_KEY,
+});
+
+export default async function handler(req, res) {
   if (req.method !== 'POST') {
-    return new Response(JSON.stringify({ error: 'Método no permitido' }), {
-      status: 405,
-      headers: { 'Content-Type': 'application/json' }
-    });
+    return res.status(405).json({ error: 'Método no permitido. Usa POST.' });
   }
 
   try {
-    const { messages } = await req.json();
+    //  Obtener los mensajes del frontend
+    const { messages } = req.body;
 
-    const response = await fetch('https://api.groq.com/openai/v1/chat/completions', {
-      method: 'POST',
-      headers: {
-        'Authorization': `Bearer ${process.env.GROQ_API_KEY}`,
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        model: 'qwen-qwq-32b', // ✅ modelo corregido
-        messages,                          // ✅ recibe desde el frontend
-        temperature: 0.6
-      })
-    });
-
-    if (!response.ok) {
-      const error = await response.json();
-      console.error('Groq API error:', error); // 👈 importante para debug
-      throw new Error(error?.error?.message || 'Error desconocido de Groq');
+    if (!messages || !Array.isArray(messages)) {
+      return res.status(400).json({ error: 'Formato de mensajes inválido' });
     }
 
-    const data = await response.json();
-    const cleaned = data.choices[0].message.content.replace(/<think>[\s\S]*?<\/think>/g, '').trim();
 
-    return new Response(JSON.stringify({ response: cleaned }), {
-      status: 200,
-      headers: { 'Content-Type': 'application/json' }
+    const chatCompletion = await groq.chat.completions.create({
+      messages: messages,
+      model: 'qwen-qwq-32b', // Tu modelo elegido
+      temperature: 0.6,
+    });
+
+
+    const rawContent = chatCompletion.choices[0]?.message?.content || "";
+
+
+    const cleanedContent = rawContent.replace(/<think>[\s\S]*?<\/think>/g, '').trim();
+
+
+    return res.status(200).json({ 
+      response: cleanedContent 
     });
 
   } catch (error) {
-    console.error('Error en Groq API:', error);
+    console.error('Error en Groq SDK:', error);
+    
 
-    if (error.message?.includes('Request too large')) {
-      return new Response(JSON.stringify({
-        error: 'Gracias por usar el chatbot. Has alcanzado el límite de tokens en esta sesión demo. Por favor, inicia un nuevo chat para continuar.'
-      }), {
-        status: 413,
-        headers: { 'Content-Type': 'application/json' }
-      });
+    if (error.status === 429 || (error.message && error.message.includes('Rate limit'))) {
+       return res.status(429).json({ error: 'Has alcanzado el límite de peticiones. Intenta más tarde.' });
     }
 
-    return new Response(JSON.stringify({ error: error.message || 'Error interno del servidor' }), {
-      status: 500,
-      headers: { 'Content-Type': 'application/json' }
-    });
+    return res.status(500).json({ error: error.message || 'Error interno del servidor' });
   }
 }
